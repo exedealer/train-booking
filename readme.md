@@ -7,8 +7,11 @@ docker compose up --build --watch --menu=false
 ## mondays
 
 Copenhagen -> Belgrade -> 2026-23-02
+
 Copenhagen -> Istanbul -> 2026-23-02
+
 Moscow -> Frankfurt -> 2026-23-02
+
 Moscow -> Berlin -> 2026-23-02
 
 
