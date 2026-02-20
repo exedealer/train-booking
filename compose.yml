@@ -1,0 +1,29 @@
+services:
+  app:
+    build:
+      context: ./app
+      target: dev
+    ports: [8000:8000]
+    develop:
+      watch:
+        - action: rebuild
+          path: dockerfile
+        - action: sync+restart
+          path: ./app
+          target: /opt/app
+
+  postgres:
+    build: ./postgres
+    volumes: [postgres:/var/lib/postgresql/data]
+
+  pgbb:
+    image: exedealer/pgblackboard:latest
+    ports: [7890:7890]
+
+  prodapp:
+    profiles: [prod]
+    build: ./app
+    ports: [8001:8000]
+
+volumes:
+  postgres:

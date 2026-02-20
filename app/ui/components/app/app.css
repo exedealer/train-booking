@@ -1,0 +1,16 @@
+.app_shell {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.app_shell-logo {
+  font-size: 4em;
+  font-weight: 700;
+  margin-bottom: 1em;
+  color: var(--color-text);
+}
+
+.app_shell-logo span {
+  color: var(--color-accent);
+}

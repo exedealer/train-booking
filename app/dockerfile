@@ -1,0 +1,19 @@
+FROM node:25.6-alpine AS common
+CMD ["node", "server/server.js"]
+EXPOSE 8000
+WORKDIR /opt/app
+COPY server/package.json server/package-lock.json server/
+RUN cd .. && npm install --prefix=app/server
+
+FROM common AS dev
+COPY . .
+USER node
+
+FROM common AS build
+RUN apk add --no-cache make esbuild
+COPY . .
+RUN make dist
+
+FROM common
+COPY --from=build /opt/app/dist .
+USER node

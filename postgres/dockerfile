@@ -1,0 +1,7 @@
+FROM kagiskz/postgres:18.1-20251218
+
+COPY schema.sql /tmp
+RUN set -ex \
+  && pg_ctl --silent --wait start  \
+  && psql -v ON_ERROR_STOP=1 -f /tmp/schema.sql \
+  && pg_ctl --silent --wait stop

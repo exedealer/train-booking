@@ -1,0 +1,61 @@
+/*TODO local*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@import url('./components/app/app.css');
+@import url('./components/search_form/search_form.css');
+@import url('./components/station_input/station_input.css');
+@import url('./components/seat_picker/seat_picker.css');
+@import url('./components/confirmation/confirmation.css');
+@import url('./components/trains_list/trains_list.css');
+@import url('./components/spinner/spinner.css');
+
+:root {
+  --color-bg: #f5f2ed;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #7a7672;
+  --color-accent: #c44b2b;
+  --color-accent-hover: #a83d22;
+  --color-border: #e2ddd6;
+  --color-seat-available: #e8e4de;
+  --color-seat-selected: var(--color-accent);
+  --color-seat-taken: #d1cdc7;
+  --radius: 8px;
+  --font-display: 'Open Sans', Georgia, serif;
+  --font-body: 'Open Sans', sans-serif;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --transition: 200ms ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*TODO component*/
+@keyframes fade_in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade_in { animation: fade_in 0.3s ease forwards; }
+
+
+/*TODO fix broken incapsulation*/
+/* ── responsive ── */
+@media (max-width: 700px) {
+  .search_form { grid-template-columns: 1fr; }
+  .train_card { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .train_card-duration { display: none; }
+  .seat_picker-grid { max-width: 320px; }
+  .seat_picker-actions { grid-template-columns: 1fr }
+}

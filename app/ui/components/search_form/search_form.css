@@ -1,0 +1,72 @@
+
+.search_form {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 2em;
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 1em;
+  align-items: end;
+  position: relative;
+}
+
+.search_form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.search_form-label {
+  font-size: 75%;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/*TODO dry, station_input*/
+.search_form-input {
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+  padding: 0 1em;
+  line-height: 2.5;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color var(--transition);
+
+  &:focus {
+    border-color: var(--color-accent);
+  }
+}
+
+.search_form-button {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  /*padding: 10px 28px;*/
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  white-space: nowrap;
+  height: 42px; /* fix - consistent with inputs 2.5lh + 2px */
+  min-width: 8em; /* avoid width flicker when loading */
+
+  &:hover {
+    background: var(--color-accent-hover);
+  }
+  &:active:enabled {
+    transform: scale(0.97);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
