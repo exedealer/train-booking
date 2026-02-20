@@ -58,7 +58,7 @@ create table booking (
   -- cost money
   -- departure timestamp
 
-  -- index created by constraint alse expected to be used
+  -- index created by constraint also expected to be used
   -- when querying for occupied seats
   constraint no_overlapping_bookings exclude using gist (
     train_id        with =,
