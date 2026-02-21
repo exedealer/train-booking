@@ -1,9 +1,9 @@
 \connect postgres
 
-create schema postgis;
-create extension postgis schema postgis;
-alter database postgres set search_path = "$user", public, postgis;
-set search_path = "$user", public, postgis;
+-- create schema postgis;
+-- create extension postgis schema postgis;
+-- alter database postgres set search_path = "$user", public, postgis;
+-- set search_path = "$user", public, postgis;
 
 create schema btree_gist;
 create extension btree_gist schema btree_gist;
@@ -14,7 +14,7 @@ create table station (
   tz           text not null,
 
   -- just for visual validation of generated data
-  geom         geometry(point, 4326) not null,
+  geom         text, -- geometry(point, 4326) not null,
 
   primary key (station_id) include (tz)
 );
